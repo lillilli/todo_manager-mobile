@@ -3,7 +3,8 @@
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    android:background="#e0e0e0">
+    android:background="#e0e0e0"
+    android:onClick="onTaskClick">
 
     <RelativeLayout
         android:layout_width="match_parent"

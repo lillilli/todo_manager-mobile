@@ -3,15 +3,16 @@ package com.projects.vitaly.todomanager
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Canvas
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,8 +20,6 @@ import java.net.URI
 import kotlinx.android.synthetic.main.add_task_dialog.view.*
 import org.jetbrains.anko.toast
 import android.support.v7.widget.RecyclerView
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,9 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         var _self = this
 
@@ -90,5 +86,12 @@ class MainActivity : AppCompatActivity() {
         dialog.setTitle("Add new task")
 
         dialog.show()
+    }
+
+    fun onTaskClick(view: View) {
+        val intent = Intent(this, TaskActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, "lolol")
+        }
+        startActivity(intent)
     }
 }

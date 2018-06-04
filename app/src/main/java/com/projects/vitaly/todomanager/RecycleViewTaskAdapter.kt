@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.task_list.*
 import kotlinx.android.synthetic.main.task_list.view.*
 
 class RecycleViewTaskAdapter(val items : ArrayList<Task>, val context: Context) : RecyclerView.Adapter<ViewHolder>()
