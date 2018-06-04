@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 import java.net.URI
 import kotlinx.android.synthetic.main.add_task_dialog.view.*
@@ -22,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         var _self = this
 
