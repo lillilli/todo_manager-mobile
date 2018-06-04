@@ -16,6 +16,11 @@ data class AuthMessage (
         val token: String
 )
 
+data class AddMessage (
+        val text: String,
+        val priority: String
+)
+
 data class DeleteMessage (
         val id: Int
 )
@@ -164,6 +169,11 @@ open class TaskManager(private var url: URI, var tasks: ArrayList<Task>) {
                 this.tasks.add(newTask)
             }
         }
+    }
+
+    fun addTask(data: AddMessage) {
+        val msg = WSMessage("task_add", data)
+        wsClient?.send(g.toJson(msg))
     }
 
     open fun onTasksUpdate() {
